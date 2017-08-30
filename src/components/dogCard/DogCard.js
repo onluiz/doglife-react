@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import DogImage from '../../images/dog.png';
 
 const DogCard = ({id, name, breed, notes}) => (
     // <GridTile>
@@ -14,12 +15,12 @@ const DogCard = ({id, name, breed, notes}) => (
     // </GridTile>
     // <li>{name + "   " + breed}</li>
     <GridTile
-        key={'http://www.netpacs.com.br/wp-content/uploads/2016/12/netpacs-e1482329981349.png'}
+        key={DogImage}
         title={name}
         subtitle={<span><b>{breed}</b></span>}
         actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
     >
-        <img src={'http://www.netpacs.com.br/wp-content/uploads/2016/12/netpacs-e1482329981349.png'} />
+        <img src={DogImage} />
     </GridTile>
 
 );
