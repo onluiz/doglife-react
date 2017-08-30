@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import MenuRight from '../menuRight/MenuRight';
-import MenuLeft from '../MenuLeft/MenuLeft';
+import MenuLeft from '../menuLeft/MenuLeft';
+import './Header.css';
 
 class Header extends Component {
 
@@ -11,7 +12,7 @@ class Header extends Component {
 
   render() {
     return (
-      <AppBar 
+      <AppBar
         title="DogLife"
         iconElementLeft={<MenuLeft />}
         iconElementRight={<MenuRight />}/>

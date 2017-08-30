@@ -3,6 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router-dom';
 
 class MenuRight extends Component {
 
@@ -18,8 +19,14 @@ class MenuRight extends Component {
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-        <MenuItem primaryText="Refresh" />
-        <MenuItem primaryText="Help" />
+        <MenuItem 
+          primaryText="Home"
+          containerElement={<Link to="/"></Link>}
+          />
+          <MenuItem 
+            primaryText="About"
+            containerElement={<Link to="/about"></Link>}
+          />
         <MenuItem primaryText="Sign out" />
       </IconMenu>
     );
