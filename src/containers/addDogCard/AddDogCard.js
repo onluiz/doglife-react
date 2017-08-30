@@ -18,45 +18,101 @@ const style = {
     margin: 12,
 };
 
-let AddDog = ({dispatch}) => {
-    let input;
+class AddDog extends React.Component {
 
-    let onSubmit = (e) => {
-        console.log('onSubmit');
-        //console.log(input.value);
-        e.preventDefault()
-        //if (!input.value.trim()) {
-        //    return
-        //}
-        //dispatch(addDog(input.value))
-        //input.value = ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            breed: '',
+            notes: ''
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    return (
-        <div>
-            <Container fluid={true} style={style}>
-                <Row className="mui--align-middle">
-                    <Col md="4"></Col>
-                    <Col md="4">
-                        <Panel>
-                            <Form onSubmit={onSubmit}>
-                                <legend>Add Dog</legend>
-                                <Input hint="nome" />
-                                <Input hint="raça" />
-                                <DatePicker hintText="quando ele nasceu?" container="inline" />
-                                <Textarea hint="diga algo sobre seu pet" />
-                                <Button variant="raised" color="primary" style={style}>Add</Button>
-                                <Link to="/"><Button variant="raised" >Voltar</Button></Link>
-                            </Form>
-                        </Panel>
-                    </Col>
-                    <Col md="4"></Col>
-                </Row>
-            </Container>
-        </div>
-    );
-};
+    handleInputChange(event) {
+        console.log('handleInputChange');
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
 
-AddDog = connect()(AddDog)
+    handleSubmit(event) {
+        this.props.dispatch(addDog(this.state));
+        event.preventDefault();
+    }
 
-export default AddDog;
+    render() {
+        return(
+            <div>
+                <Container fluid={true} style={style}>
+                    <Row className="mui--align-middle">
+                        <Col md="4"></Col>
+                        <Col md="4">
+                            <Panel>
+                                <Form onSubmit={this.handleSubmit}>
+                                    <legend>Add Dog</legend>
+                                    <Input hint="nome" name="name" onChange={this.handleInputChange}/>
+                                    <Input hint="raça" name="breed" onChange={this.handleInputChange}/>
+                                    <Textarea hint="diga algo sobre seu pet" name="notes" onChange={this.handleInputChange}/>
+                                    <Button variant="raised" color="primary" style={style}>Add</Button>
+                                    <Link to="/"><Button variant="raised" >Voltar</Button></Link>
+                                </Form>
+                            </Panel>
+                        </Col>
+                        <Col md="4"></Col>
+                    </Row>
+                </Container>
+            </div>
+        );
+    };
+
+}
+
+// let AddDog = ({dispatch}) => {
+//     let input;
+
+//     let onSubmit = (e) => {
+//         console.log('onSubmit');
+//         //console.log(input.value);
+//         e.preventDefault()
+//         //if (!input.value.trim()) {
+//         //    return
+//         //}
+//         //dispatch(addDog(input.value))
+//         //input.value = ''
+//     }
+
+//     return (
+        // <div>
+        //     <Container fluid={true} style={style}>
+        //         <Row className="mui--align-middle">
+        //             <Col md="4"></Col>
+        //             <Col md="4">
+        //                 <Panel>
+        //                     <Form onSubmit={onSubmit}>
+        //                         <legend>Add Dog</legend>
+        //                         <Input hint="nome" />
+        //                         <Input hint="raça" />
+        //                         <DatePicker hintText="quando ele nasceu?" container="inline" />
+        //                         <Textarea hint="diga algo sobre seu pet" />
+        //                         <Button variant="raised" color="primary" style={style}>Add</Button>
+        //                         <Link to="/"><Button variant="raised" >Voltar</Button></Link>
+        //                     </Form>
+        //                 </Panel>
+        //             </Col>
+        //             <Col md="4"></Col>
+        //         </Row>
+        //     </Container>
+        // </div>
+//     );
+// };
+
+// AddDog = connect()(AddDog)
+
+export default connect()(AddDog);

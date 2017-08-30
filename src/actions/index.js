@@ -1,9 +1,11 @@
 let nextDogId = 0
-export const addDog = name => {
+export const addDog = dog => {
   return {
     type: 'ADD_DOG',
     id: nextDogId++,
-    name
+    name: dog.name,
+    breed: dog.breed,
+    notes: dog.notes
   }
 }
 

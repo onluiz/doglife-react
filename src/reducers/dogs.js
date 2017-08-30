@@ -5,14 +5,16 @@ const dogs = (state = [], action) => {
             ...state,
                 {
                     id: action.id,
-                    name: action.name
+                    name: action.name,
+                    breed: action.breed,
+                    notes: action.notes
                 }
             ]
         case 'TOGGLE_DOG':
-            return state.map(todo =>
-                (todo.id === action.id) 
-                ? {...todo, completed: !todo.completed}
-                : todo
+            return state.map(dog =>
+                (dog.id === action.id) 
+                ? {...dog, completed: !dog.completed}
+                : dog
             )
         default:
             return state;
