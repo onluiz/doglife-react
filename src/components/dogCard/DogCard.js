@@ -1,34 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import DogImage from '../../images/dog.png';
+import React, { Component } from 'react'
+import Panel from 'muicss/lib/react/panel'
+import Divider from 'muicss/lib/react/divider'
+import './DogCard.css'
+import dogImage from '../../assets/images/dog-icon-35930.png'
 
-const DogCard = ({id, name, breed, notes}) => (
-    // <GridTile>
-    //     key={'http://www.netpacs.com.br/wp-content/uploads/2016/12/netpacs-e1482329981349.png'}
-    //     title={name}
-    //     subtitle={<span><b>{breed}</b></span>}
-    //      actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-    //     <img src={'http://www.netpacs.com.br/wp-content/uploads/2016/12/netpacs-e1482329981349.png'} />
-    // </GridTile>
-    // <li>{name + "   " + breed}</li>
-    <GridTile
-        key={DogImage}
-        title={name}
-        subtitle={<span><b>{breed}</b></span>}
-        actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-    >
-        <img src={DogImage} />
-    </GridTile>
-
-);
-
-DogCard.PropTypes = {
-    name: PropTypes.string.isRequired,
-    breed: PropTypes.string.isRequired,
-    notes: PropTypes.string.isRequired
-};
+class DogCard extends Component {
+    render() {
+        return (
+            <div>
+                <Panel className="dogCardPanel">
+                    <div className="dogName">
+                        Kiko
+                    </div>
+                    <div>
+                        <img src={dogImage} className="dogCardImage"/> 
+                    </div>
+                    <Divider />
+                    <div className="divDogData">
+                        <span className="dogData">3 Anos</span>
+                        <span className="dogData mui--divider-left">&nbsp;&nbsp;Vacinas em Dia</span>
+                        <span className="dogData mui--divider-left">&nbsp;&nbsp;Editar</span>
+                    </div>
+                </Panel>
+            </div>
+        )
+    }
+}
 
 export default DogCard;

@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
-import AppBar from 'material-ui/AppBar';
-import MenuRight from '../menuRight/MenuRight';
-import MenuLeft from '../menuLeft/MenuLeft';
-import './Header.css';
+import React, { Component } from 'react'
+import Appbar from 'muicss/lib/react/appbar'
+import './Header.css'
 
 class Header extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <AppBar
-        title="DogLife"
-        iconElementLeft={<MenuLeft />}
-        iconElementRight={<MenuRight />}/>
-    );
-  }
-
+    render() {
+        return (
+            <div>
+                <Appbar>
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td className="mui--appbar-height"><font>Doglife</font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </Appbar>
+            </div>
+        )
+    }
 }
-  
+
 export default Header;

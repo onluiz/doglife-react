@@ -1,53 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import DogCard from '../dogCard/DogCard'
+import Container from 'muicss/lib/react/container'
+import Row from 'muicss/lib/react/row'
+import Col from 'muicss/lib/react/col'
 
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-
-const styles = {
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-    },
-    gridList: {
-      width: 500,
-      height: 450,
-      overflowY: 'auto',
-    },
-};
-
-const DogCardList = ({dogs, onDogClick}) => (
-    <div style={styles.root}>
-        <GridList
-            cellHeight={180}
-            style={styles.gridList}
-        >
-            {dogs.map(dog => (
-                <DogCard key={dog.id} {...dog} onClick={() => onDogClick(dog.id)} />
-                ))}
-        </GridList>
-    </div>
-    // <ul>
-    //     {dogs.map(dog => (
-    //     <DogCard key={dog.id} {...dog} onClick={() => onDogClick(dog.id)} />
-    //     ))}
-    // </ul>
-)
-
-DogCardList.propTypes = {
-    dogs: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        breed: PropTypes.string.isRequired,
-        notes: PropTypes.string.isRequired,
-      }).isRequired
-    ).isRequired,
-    onDogClick: PropTypes.func.isRequired
+class DogCardList extends Component {
+    render() {
+        return (
+            <div>
+                <Container fluid={true}>
+                    <Row>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                    </Row>
+                    <Row>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                    </Row>
+                    <Row>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                        <Col md="3"><DogCard /></Col>
+                    </Row>
+                </Container>
+            </div>
+        )
+    }
 }
-  
- export default DogCardList
+
+export default DogCardList;

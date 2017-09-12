@@ -1,0 +1,23 @@
+.dogCardPanel {
+    width: 70%;
+    margin: 20px;
+    background-color: #dcdcdc;
+}
+
+.dogCardImage {
+    width: 100%;
+}
+
+.dogName {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.divDogData {
+    text-align: center;
+}
+
+.dogData {
+    margin: 2px;
+    font-size: 14px;
+}
