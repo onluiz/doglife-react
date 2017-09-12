@@ -13,7 +13,7 @@ class DogCard extends Component {
                         Kiko
                     </div>
                     <div>
-                        <img src={dogImage} className="dogCardImage"/> 
+                        <img src={dogImage} alt="" className="dogCardImage"/> 
                     </div>
                     <Divider />
                     <div className="divDogData">

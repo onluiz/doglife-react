@@ -10,7 +10,9 @@ class Header extends Component {
                     <table width="100%">
                         <tbody>
                             <tr>
-                                <td className="mui--appbar-height"><font>Doglife</font></td>
+                                <td className="mui--appbar-height">
+                                    <font>Doglife</font>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
