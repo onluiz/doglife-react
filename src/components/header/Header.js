@@ -4,16 +4,24 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import AddDogDialog from '../addDogDialog/AddDogDialog'
 import './Header.css'
 
 class Header extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {value: 0};
+        this.state = {
+            value: 0,
+            openAddDogDialog: false
+        };
     }
 
     handleChange = (event, index, value) => this.setState({value});
+    handleAddDogDialog = (event) => {
+        this.setState({openAddDogDialog: !this.state.openAddDogDialog})
+        event.preventDefault();
+    }
 
     render() {
         return (
@@ -26,16 +34,17 @@ class Header extends Component {
                         anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                         targetOrigin={{horizontal: 'left', vertical: 'top'}}
                         >
-                        <MenuItem primaryText="Refresh" />
-                        <MenuItem primaryText="Send feedback" />
+                        <MenuItem primaryText="New Dog" onClick={this.handleAddDogDialog}/>
                         <MenuItem primaryText="Settings" />
-                        <MenuItem primaryText="Help" />
                         <MenuItem primaryText="Sign out" />
                     </IconMenu>
                 }
                 />
 
-                
+                <AddDogDialog
+                    open={true}
+                    handleClose={this.handleAddDogDialog}
+                />
             </div>
         )
     }
