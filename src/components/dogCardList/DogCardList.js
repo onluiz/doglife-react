@@ -9,23 +9,23 @@ class DogCardList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            dogs: []
-        }
+        // this.state = {
+        //     dogs: []
+        // }
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:8080/dogs')
-        .then(res =>this.setState({dogs: res.data}))
-        .catch(err => console.log(err));
-    }
+    // componentDidMount() {
+    //     axios.get('http://localhost:8080/dogs')
+    //     .then(res =>this.setState({dogs: res.data}))
+    //     .catch(err => console.log(err));
+    // }
 
     render() {
         return (
             <div>
                 <Container fluid={true}>
                     <Row>
-                        {this.state.dogs.map(dog => {
+                        {this.props.dogs.map(dog => {
                             return <Col md="3" key={dog._id}><DogCard dogName={dog.name} /></Col>
                         })}
                     </Row>

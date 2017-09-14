@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './components/header/Header'
 import DogCardList from './components/dogCardList/DogCardList'
+import VisibleDogCardList from './containers/visibleDogCardList/VisibleDogCardList'
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <Header />
-          <DogCardList />
+          <VisibleDogCardList />
         </div>
       </MuiThemeProvider>
     );
