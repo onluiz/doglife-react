@@ -14,11 +14,9 @@ class DogCardList extends Component {
         // }
     }
 
-    // componentDidMount() {
-    //     axios.get('http://localhost:8080/dogs')
-    //     .then(res =>this.setState({dogs: res.data}))
-    //     .catch(err => console.log(err));
-    // }
+    componentDidMount() {
+        this.props.showAll();
+    }
 
     render() {
         return (

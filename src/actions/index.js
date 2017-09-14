@@ -9,6 +9,8 @@ export function showAll() {
         }
     ]
 
+    console.log('showAllaaa');
+
     return {
         type: 'SHOW_ALL',
         dogs
