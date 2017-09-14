@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux'
-import dogs from './dogs'
-import visibilityFilter from './visibilityFilter'
+import dashboard from './dashboard'
 
 const dogLifeApp = combineReducers({
-  dogs,
-  visibilityFilter
+  dashboard
 })
 
 export default dogLifeApp

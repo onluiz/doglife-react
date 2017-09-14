@@ -3,19 +3,10 @@ import DogCard from '../dogCard/DogCard'
 import Container from 'muicss/lib/react/container'
 import Row from 'muicss/lib/react/row'
 import Col from 'muicss/lib/react/col'
-import axios from 'axios'
 
 class DogCardList extends Component {
-
-    constructor(props) {
-        super(props)
-        // this.state = {
-        //     dogs: []
-        // }
-    }
-
     componentDidMount() {
-        this.props.showAll();
+        this.props.getAllDogs();
     }
 
     render() {

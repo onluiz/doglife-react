@@ -1,22 +1,13 @@
 import { connect } from 'react-redux'
 import DogCardList from '../../components/dogCardList/DogCardList'
-import { showAll } from '../../actions/index'
+import * as actions from '../../actions/dashboard'
 
 const mapStateToProps = state => {
-    return {
-        dogs: state.dogs
+    return { 
+        dogs: state.dashboard.dogs
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        showAll: showAll
-    }
-}
-
-const VisibleDogCardList = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(DogCardList)
+const VisibleDogCardList = connect(mapStateToProps, actions)(DogCardList)
 
 export default VisibleDogCardList
