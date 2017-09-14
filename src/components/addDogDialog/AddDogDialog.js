@@ -4,6 +4,7 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
+import axios from 'axios'
 
 class AddDogDialog extends Component {
 
@@ -19,7 +20,11 @@ class AddDogDialog extends Component {
 
     handleSubmit = (event) => {
         let newDog = this.state;
-        console.log(newDog);
+
+        axios.post("http://localhost:8080/dogs", newDog)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+
         event.preventDefault()
     }
 

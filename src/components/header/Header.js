@@ -42,7 +42,7 @@ class Header extends Component {
                 />
 
                 <AddDogDialog
-                    open={true}
+                    open={this.state.openAddDogDialog}
                     handleClose={this.handleAddDogDialog}
                 />
             </div>

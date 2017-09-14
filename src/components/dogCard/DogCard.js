@@ -10,7 +10,7 @@ class DogCard extends Component {
             <div>
                 <Panel className="dogCardPanel">
                     <div className="dogName">
-                        Kiko
+                        {this.props.dogName}
                     </div>
                     <div>
                         <img src={dogImage} alt="" className="dogCardImage"/> 
