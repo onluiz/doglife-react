@@ -1,25 +1,31 @@
 import axios from 'axios';
 
-export function addDogSucess() {
-
+export function addDogFail(err) {
+    return {
+        type: 'ADD_FAILURE',
+        message: 'It was not possible to save your new dog',
+        error: err
+    }
 }
 
-export function addDogFail() {
-
-}
-
-export function addDog() {
-    
+export function addDog(newDog) {
+    let url = 'http://localhost:8080/dogs';
+    return function(dispatch) {
+        axios.post(url, newDog)
+            .then(res => dispatch({type: 'SHOW_ALL'}))
+            .catch(err => dispatch({type: 'ADD_FAILURE', error: err}))
+    }
 }
 
 export function getAllDogsSucess(data) {
+    console.log('getAllDogsSucess')
     return {
         type: 'SHOW_ALL_SUCCESS',
         dogs: data
     }
 }
 
-export function getAllDogsFail(err) {
+export function getAllDogsFail(err, message) {
     return {
         type: 'SHOW_ALL_FAILURE',
         message: 'It was not possible to get your dogs',

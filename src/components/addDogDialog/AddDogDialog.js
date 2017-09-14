@@ -4,7 +4,8 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
-import axios from 'axios'
+import { connect } from 'react-redux'
+import * as actions from '../../actions/dashboard'
 
 class AddDogDialog extends Component {
 
@@ -20,11 +21,7 @@ class AddDogDialog extends Component {
 
     handleSubmit = (event) => {
         let newDog = this.state;
-
-        axios.post("http://localhost:8080/dogs", newDog)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-
+        this.props.addDog(newDog);
         event.preventDefault()
     }
 
@@ -61,4 +58,4 @@ class AddDogDialog extends Component {
     }
 }
 
-export default AddDogDialog;
+export default connect(null, actions)(AddDogDialog);
