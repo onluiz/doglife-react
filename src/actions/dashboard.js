@@ -2,7 +2,6 @@ import axios from 'axios';
 const url = 'http://localhost:8080/dogs';
 
 export function manageSnackBar(open = false, message = '') {
-    console.log('open', open, 'message', message)
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
 }
 
