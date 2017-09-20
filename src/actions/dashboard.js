@@ -12,7 +12,7 @@ export function addDog(newDog) {
     let url = 'http://localhost:8080/dogs';
     return function(dispatch) {
         axios.post(url, newDog)
-            .then(res => dispatch({type: 'SHOW_ALL'}))
+            .then(res => dispatch(getAllDogs()))
             .catch(err => dispatch({type: 'ADD_FAILURE', error: err}))
     }
 }
@@ -38,6 +38,7 @@ export function getAllDogs() {
     return function(dispatch) {
         axios.get(url)
             .then(function(res) {
+                console.log('SHOW_ALL_SUCCESS', res);
                 dispatch({
                     type: 'SHOW_ALL_SUCCESS',
                     dogs: res.data
