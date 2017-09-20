@@ -1,19 +1,24 @@
-const dashboard = (state = {dogs: []}, action) => {
+const dashboard = (state = {
+  dogs: [], 
+  addDogDialog: { open: false },
+  snackBar: { open: false, message: '' }
+}, action) => {
     switch (action.type) {
       case 'SHOW_ALL_SUCCESS':
         return {
             ...state,
-            dogs: action.dogs
+            dogs: action.dogs,
           }
-      case 'SHOW_ALL_FAILURE':
+      case 'MANAGE_ADD_DOG_DIALOG': {
         return {
           ...state,
-          err: action.err
+          addDogDialog: action.addDogDialog
         }
-      case 'ADD_FAILURE' : {
+      }
+      case 'MANAGE_SNACK_BAR': {
         return {
-          ...state,
-          err: action.err
+          ...state, 
+          snackBar: action.snackBar
         }
       }
       default:

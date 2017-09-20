@@ -5,6 +5,8 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import AddDogDialog from '../addDogDialog/AddDogDialog'
+import { connect } from 'react-redux'
+import * as actions from '../../actions/dashboard'
 import './Header.css'
 
 class Header extends Component {
@@ -19,7 +21,7 @@ class Header extends Component {
 
     handleChange = (event, index, value) => this.setState({value});
     handleAddDogDialog = (event) => {
-        this.setState({openAddDogDialog: !this.state.openAddDogDialog})
+        this.props.manageAddDogDialog(!this.props.addDogDialog.open);
         event.preventDefault();
     }
 
@@ -41,13 +43,16 @@ class Header extends Component {
                 }
                 />
 
-                <AddDogDialog
-                    open={this.state.openAddDogDialog}
-                    handleClose={this.handleAddDogDialog}
-                />
+                <AddDogDialog handleClose={this.handleAddDogDialog}/>
             </div>
         )
     }
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return { 
+        addDogDialog: state.dashboard.addDogDialog
+    }
+}
+
+export default connect(mapStateToProps, actions)(Header);

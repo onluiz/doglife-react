@@ -8,17 +8,6 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions/dashboard'
 
 class AddDogDialog extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            name: "",
-            nickname: "",
-            birthdate: "",
-            notes: "",
-        }
-    }
-
     handleSubmit = (event) => {
         let newDog = this.state;
         this.props.addDog(newDog);
@@ -40,12 +29,12 @@ class AddDogDialog extends Component {
                 <Dialog
                     title="Add New Dog"
                     modal={true}
-                    open={this.props.open}
+                    open={this.props.addDogDialog.open}
                 >
                     
                 <Form>
                     <Input name="name" label="Name" hint="Dog Name" required={true} onChange={this.handleInputChange}/>
-                    <Input name="nickname" label="Nickname" hint="Dog Nickname" required={true} onChange={this.handleInputChange}/>
+                    <Input name="nickname" label="Nickname" hint="Dog Nickname" onChange={this.handleInputChange}/>
                     <Input name="birthdate" label="Birthdate" hint="Dog Birthdate" type="date" required={true} onChange={this.handleInputChange}/>
                     <Textarea name="notes" label="Notes"hint="Notes about your dog =)" onChange={this.handleInputChange}/>
                     <Button variant="raised" color="primary" onClick={this.handleSubmit}>Save</Button>
@@ -58,4 +47,10 @@ class AddDogDialog extends Component {
     }
 }
 
-export default connect(null, actions)(AddDogDialog);
+const mapStateToProps = state => {
+    return { 
+        addDogDialog: state.dashboard.addDogDialog
+    }
+}
+
+export default connect(mapStateToProps, actions)(AddDogDialog);
