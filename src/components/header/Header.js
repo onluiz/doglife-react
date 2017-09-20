@@ -10,16 +10,6 @@ import * as actions from '../../actions/dashboard'
 import './Header.css'
 
 class Header extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: 0,
-            openAddDogDialog: false
-        };
-    }
-
-    handleChange = (event, index, value) => this.setState({value});
     handleAddDogDialog = (event) => {
         this.props.manageAddDogDialog(!this.props.addDogDialog.open);
         event.preventDefault();

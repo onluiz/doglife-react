@@ -5,7 +5,7 @@ export function manageSnackBar(open = false, message = '') {
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
 }
 
-export function manageAddDogDialog(open) {
+export function manageAddDogDialog(open = false) {
     return { type: 'MANAGE_ADD_DOG_DIALOG', addDogDialog: { open }}
 }
 
