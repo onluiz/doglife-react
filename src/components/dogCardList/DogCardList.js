@@ -17,7 +17,7 @@ class DogCardList extends Component {
                 <Container fluid={true}>
                     <Row>
                         {this.props.dogs.map(dog => {
-                            return <Col md="3" key={dog._id}><DogCard dogName={dog.name} /></Col>
+                            return <Col md="3" key={dog._id}><DogCard dogId={dog._id} dogName={dog.name} /></Col>
                         })}
                     </Row>
                 </Container>

@@ -2,7 +2,7 @@ const dashboard = (
   
   state = {
     dogs: [], 
-    addDogDialog: { open: false },
+    addDogDialog: { open: false, dog: {} },
     snackBar: { open: false, message: '' }
   }, action
   

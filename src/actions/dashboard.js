@@ -5,8 +5,16 @@ export function manageSnackBar(open = false, message = '') {
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
 }
 
-export function manageAddDogDialog(open = false) {
-    return { type: 'MANAGE_ADD_DOG_DIALOG', addDogDialog: { open }}
+export function manageAddDogDialog(open = false, dog = {}) {
+    return { type: 'MANAGE_ADD_DOG_DIALOG', addDogDialog: { open, dog }}
+}
+
+export function editDog(id) {
+    return function(dispatch) {
+        axios.get(`${url}/${id}`)
+        .then(res => dispatch(manageAddDogDialog(true, res.data)))
+        .catch(err => dispatch(manageSnackBar(true, 'It was not possible to get your dog =/')))
+    }
 }
 
 export function addDog(newDog) {
