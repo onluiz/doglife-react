@@ -18,9 +18,8 @@ class AddDogDialog extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        this.setState({
-            [name]: value
-        });
+        //TODO make this work like this.setState({[name]: value}) does
+        // this.props.manageDog();
     }
 
     render() {
@@ -33,10 +32,10 @@ class AddDogDialog extends Component {
                 >
                     
                 <Form>
-                    <Input name="name" label="Name" hint="Dog Name" required={true} onChange={this.handleInputChange}/>
-                    <Input name="nickname" label="Nickname" hint="Dog Nickname" onChange={this.handleInputChange}/>
-                    <Input name="birthdate" label="Birthdate" hint="Dog Birthdate" type="date" required={true} onChange={this.handleInputChange}/>
-                    <Textarea name="notes" label="Notes"hint="Notes about your dog =)" onChange={this.handleInputChange}/>
+                    <Input name="name" label="Name" hint="Dog Name" value={ this.props.dog.name } required={true} onChange={this.handleInputChange}/>
+                    <Input name="nickname" label="Nickname" hint="Dog Nickname" value={ this.props.dog.nickname } onChange={this.handleInputChange}/>
+                    <Input name="birthdate" label="Birthdate" hint="Dog Birthdate" type="date" value={ this.props.dog.birthdate } required={true} onChange={this.handleInputChange}/>
+                    <Textarea name="notes" label="Notes"hint="Notes about your dog =)" value={ this.props.dog.notes } onChange={this.handleInputChange}/>
                     <Button variant="raised" color="primary" onClick={this.handleSubmit}>Save</Button>
                     <Button variant="raised" onClick={this.props.handleClose}>Cancel</Button>
                 </Form>
@@ -49,7 +48,8 @@ class AddDogDialog extends Component {
 
 const mapStateToProps = state => {
     return { 
-        addDogDialog: state.dashboard.addDogDialog
+        addDogDialog: state.dashboard.addDogDialog,
+        dog: state.dashboard.dog
     }
 }
 
