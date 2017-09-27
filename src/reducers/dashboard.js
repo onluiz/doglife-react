@@ -1,12 +1,14 @@
 const dashboard = (
   state = {
     dogs: [], 
-    addDogDialog: { open: false },
-    dog: {
-      name: '',
-      nickname: '',
-      birthdate: '',
-      notes: ''
+    addDogDialog: { 
+      open: false,
+      dog: {
+        name: '',
+        nickname: '',
+        birthdate: '',
+        notes: ''
+      },
     },
     snackBar: { open: false, message: '' }
   }, action
@@ -18,15 +20,10 @@ const dashboard = (
             ...state,
             dogs: action.dogs,
           }
-      case 'MANAGE_DOG':
-        return {
-          ...state,
-          dog: action.dog
-        }
       case 'MANAGE_ADD_DOG_DIALOG': {
         return {
           ...state,
-          addDogDialog: action.addDogDialog
+          addDogDialog: action.addDogDialog,
         }
       }
       case 'MANAGE_SNACK_BAR': {

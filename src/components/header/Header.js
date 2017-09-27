@@ -33,7 +33,7 @@ class Header extends Component {
                 }
                 />
 
-                <AddDogDialog handleClose={this.handleAddDogDialog}/>
+                <AddDogDialog/>
             </div>
         )
     }
