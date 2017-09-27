@@ -24,6 +24,8 @@ class AddDogDialog extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
+        console.log({[name]: value});
+        let dog = {[name]: value};
         //TODO make this work like this.setState({[name]: value}) does
         // this.props.manageDog();
     }
@@ -40,6 +42,7 @@ class AddDogDialog extends Component {
                 <Form>
                     <Input name="name" label="Name" hint="Dog Name" value={ this.props.dog.name } required={true} onChange={this.handleInputChange}/>
                     <Input name="nickname" label="Nickname" hint="Dog Nickname" value={ this.props.dog.nickname } onChange={this.handleInputChange}/>
+                    <Input name="birthdate" label="Birthdate" hint="Dog Birthdate" value={ this.props.dog.birthdate } onChange={this.handleInputChange}/>
                     <Textarea name="notes" label="Notes"hint="Notes about your dog =)" value={ this.props.dog.notes } onChange={this.handleInputChange}/>
                     <Button variant="raised" color="primary" onClick={this.handleSubmit}>Save</Button>
                     <Button variant="raised" onClick={this.handleAddDogDialog}>Cancel</Button>

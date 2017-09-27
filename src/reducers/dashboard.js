@@ -4,10 +4,11 @@ const dashboard = (
     addDogDialog: { 
       open: false,
       dog: {
+        _id: '',
         name: '',
         nickname: '',
         birthdate: '',
-        notes: ''
+        notes: '',
       },
     },
     snackBar: { open: false, message: '' }
