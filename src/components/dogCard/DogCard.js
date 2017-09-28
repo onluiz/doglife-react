@@ -14,12 +14,16 @@ class DogCard extends Component {
         this.props.editDog(this.props.dogId)
     }
 
+    handleDelete = () => {
+        this.props.deleteDog(this.props.dogId);
+    }
+
     render() {
         return (
             <div>
                 <Panel className="dogCardPanel">
                     <div className="dogName">
-                        {this.props.dogName} - {this.props.dogId}
+                        {this.props.dogName}
                     </div>
                     <div>
                         <img src={dogImage} alt="" className="dogCardImage"/> 
@@ -37,7 +41,8 @@ class DogCard extends Component {
                             <RaisedButton 
                                 title="Remove the dog =(" 
                                 secondary={true}
-                                icon={<ActionDelete />}/></span>
+                                icon={<ActionDelete />}
+                                onClick={this.handleDelete}/></span>
                     </div>
                 </Panel>
             </div>

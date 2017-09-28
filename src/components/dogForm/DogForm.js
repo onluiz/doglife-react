@@ -1,30 +1,53 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { TextField, DatePicker } from 'redux-form-material-ui'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class DogForm extends Component {
     render() {
         return (
             <form onSubmit={ this.props.handleSubmit }>
                 <div>
-                    <label htmlFor="name">Dog Name</label>
-                    <Field name="name" component="input" type="text" />
+                <Field
+                    name="name" 
+                    label="Dog Name"
+                    floatingLabelText="Dog Name"
+                    hintText="Your Dog's name"
+                    component={TextField}
+                    type="text"
+                    required={false}
+                    value="tesste"/>
                 </div>
                 <div>
-                    <label htmlFor="nickname">Dog Nickname</label>
-                    <Field name="nickname" component="input" type="text" />
+                    <Field
+                        name="nickname" 
+                        label="Dog Nickname"
+                        floatingLabelText="Dog Nickname"
+                        hintText="Your Dog's nickname"
+                        component={TextField}
+                        type="text"/>
                 </div>
                 <div>
-                    <label htmlFor="birthdate">Dog Birthdate</label>
-                    <Field name="birthdate" component="input" type="date" />
+                    <Field
+                        name="birthdate"
+                        component={DatePicker}
+                        hintText="Your Dog's birthdate"
+                        format={(value, name) => value === '' ? null : value}/>
                 </div>
                 <div>
-                    <label htmlFor="notes">Notes about your dog</label>
-                    <Field name="notes" component="input" type="text" />
+                    <Field
+                        name="notes" 
+                        label="Dog Notes"
+                        floatingLabelText="Dog Notes"
+                        hintText="Notes about your dog"
+                        component={TextField}
+                        type="text"/>
                 </div>
-                <button type="submit">Submit</button>
+                <RaisedButton label="Save" primary={true} type="submit"/>
+                <RaisedButton label="Cancel" onClick={ this.props.onCancel }/>
             </form>
         );
     }
 }
 
-export default reduxForm({ form: 'dogForm' })(DogForm)
+export default reduxForm({form: 'dogForm'})(DogForm)
