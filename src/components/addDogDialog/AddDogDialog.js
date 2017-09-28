@@ -4,8 +4,9 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
-import { connect } from 'react-redux'
-import * as actions from '../../actions/dashboard'
+import DogForm from '../dogForm/DogForm';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/dashboard';
 
 class AddDogDialog extends Component {
 
@@ -38,15 +39,17 @@ class AddDogDialog extends Component {
                     modal={true}
                     open={this.props.addDogDialog.open}
                 >
-                    
-                <Form>
+                
+                <DogForm />
+
+                {/* <Form>
                     <Input name="name" label="Name" hint="Dog Name" value={ this.props.dog.name } required={true} onChange={this.handleInputChange}/>
                     <Input name="nickname" label="Nickname" hint="Dog Nickname" value={ this.props.dog.nickname } onChange={this.handleInputChange}/>
                     <Input name="birthdate" label="Birthdate" hint="Dog Birthdate" value={ this.props.dog.birthdate } onChange={this.handleInputChange}/>
                     <Textarea name="notes" label="Notes"hint="Notes about your dog =)" value={ this.props.dog.notes } onChange={this.handleInputChange}/>
                     <Button variant="raised" color="primary" onClick={this.handleSubmit}>Save</Button>
                     <Button variant="raised" onClick={this.handleAddDogDialog}>Cancel</Button>
-                </Form>
+                </Form> */}
 
                 </Dialog>
             </div>
