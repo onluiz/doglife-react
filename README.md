@@ -4,8 +4,8 @@
 - [ ] Sign in screen;
 - [ ] Sign up screen;
 - [ ] Token managment with axios;
-- [ ] Edit dog;
-- [ ] Remove dog;
+- [x] Edit dog;
+- [x] Remove dog;
 - [ ] User settings;
 - [ ] Upload dog photo;
 - [x] Add redux;
