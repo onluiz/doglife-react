@@ -1,0 +1,19 @@
+.signUpPanel {
+    margin: 20px
+}
+
+.signUpForm {
+    margin-top: 20px
+}
+
+.signUpForgetPassword {
+    margin-right: 10px
+}
+
+.signTabs {
+    margin: 20px
+}
+
+tag {
+    cursor: 'pointer; hand;'
+}

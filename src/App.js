@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Header from './components/header/Header'
-import DogCardList from './components/dogCardList/DogCardList'
+import MainPublicPage from './components/mainPublicPage/MainPublicPage'
+import MainPage from './components/mainPage/MainPage'
 import Snackbar from 'material-ui/Snackbar'
 import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
+
+    let page;
+
+    if(this.props.isAuthenticated) {
+      page = <MainPage />
+    } else {
+      page = <MainPublicPage />
+    }
+
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Header />
-          <DogCardList />
+          {page}
           <Snackbar
             open={this.props.snackBar.open}
             message={this.props.snackBar.message}
@@ -25,7 +33,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return { 
-    snackBar: state.dashboard.snackBar
+    snackBar: state.dashboard.snackBar,
+    isAuthenticated: state.app.isAuthenticated
   }
 }
 

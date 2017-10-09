@@ -8,15 +8,15 @@ class DogForm extends Component {
         return (
             <form onSubmit={ this.props.handleSubmit }>
                 <div>
-                <Field
-                    name="name" 
-                    label="Dog Name"
-                    floatingLabelText="Dog Name"
-                    hintText="Your Dog's name"
-                    component={TextField}
-                    type="text"
-                    required={false}
-                    value="tesste"/>
+                    <Field
+                        name="name" 
+                        label="Dog Name"
+                        floatingLabelText="Dog Name"
+                        hintText="Your Dog's name"
+                        component={TextField}
+                        type="text"
+                        required={false}
+                        value=""/>
                 </div>
                 <div>
                     <Field
