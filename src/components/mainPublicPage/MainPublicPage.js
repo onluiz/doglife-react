@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import SignUpForm from '../signUpForm/SignUpForm' 
+import SignUpFormContainer from '../../containers/signUpForm/SignUpFormContainer'
 
 class MainPublicPage extends Component {
     render() {
         return(
             <div>
                 MainPublicPage
-                <SignUpForm />
+                <SignUpFormContainer />
             </div>
         )
     }

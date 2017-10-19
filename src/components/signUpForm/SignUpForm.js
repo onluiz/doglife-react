@@ -8,8 +8,7 @@ class SignUpForm extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <title>teste</title>
+                <form onSubmit={ this.props.handleSubmit }>
                     <div>
                         <Field
                             name="username" 
