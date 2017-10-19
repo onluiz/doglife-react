@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import SignUpForm from '../../components/signUpForm/SignUpForm'
+import { connect } from 'react-redux'
+import * as actions from '../../actions/mainPublicPage'
 
 class SignUpFormContainer extends Component {
-
     handleSubmit = (values) => {
-
-        console.log(values);
-
-        // if(values._id === "") {
-        //     this.props.addDog(values);
-        // } else {
-        //     this.props.updateDog(values);
-        // }
+        if(values._id === "") {
+            this.props.addUser(values);
+        } else {
+            this.props.updateUser(values);
+        }
     }
 
     render() {
@@ -22,4 +20,4 @@ class SignUpFormContainer extends Component {
         )
     }
 }
-export default SignUpFormContainer;
+export default connect(null, actions)(SignUpFormContainer);
