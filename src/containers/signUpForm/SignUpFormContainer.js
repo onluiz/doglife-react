@@ -10,9 +10,7 @@ class SignUpFormContainer extends Component {
 
     render() {
         return (
-            <div>
-                <SignUpForm onSubmit={ this.handleSubmit }/>
-            </div>
+                <SignUpForm onSubmit={ this.handleSubmit }></SignUpForm>
         )
     }
 }
