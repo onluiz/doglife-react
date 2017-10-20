@@ -5,11 +5,7 @@ import * as actions from '../../actions/mainPublicPage'
 
 class SignUpFormContainer extends Component {
     handleSubmit = (values) => {
-        if(values._id === "") {
-            this.props.addUser(values);
-        } else {
-            this.props.updateUser(values);
-        }
+        this.props.addUser(values);
     }
 
     render() {

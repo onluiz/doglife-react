@@ -17,7 +17,7 @@ class SignUpForm extends Component {
                             hintText="Your Username"
                             component={TextField}
                             type="text"
-                            required={false}/>
+                            required={true}/>
                     </div>
                     <div>
                         <Field
@@ -27,17 +27,17 @@ class SignUpForm extends Component {
                             hintText="Your Password"
                             component={TextField}
                             type="password"
-                            required={false}/>
+                            required={true}/>
                     </div>
                     <div>
                         <Field
-                            name="password" 
+                            name="repeatedPassword" 
                             label="Repeat Your Password"
                             floatingLabelText="Repeat Your Password"
                             hintText="Repeat Your Password"
                             component={TextField}
                             type="password"
-                            required={false}/>
+                            required={true}/>
                     </div>
                     <RaisedButton label="Sign Up" primary={true} type="submit"/>
                 </form>

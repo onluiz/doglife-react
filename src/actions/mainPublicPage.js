@@ -4,12 +4,17 @@ export function manageSnackBar(open = false, message = '') {
 
 export function addUser(newUser) {
     return function(dispatch) {
-        console.log('addUser', newUser);
+        if(newUser.password !== newUser.repeatedPassword) {
+            dispatch(manageSnackBar(true, 'Password and repeated password should be the same'))
+        } else {
+            dispatch(manageSnackBar(true, 'Now everything is fine'))
+        }
     }
 }
 
 export function updateUser(user) {
     return function(dispatch) {
-    console.log('updateUser', user);
+        dispatch(manageSnackBar(true, 'Updating user'))
+        console.log('updateUser', user);
     }
 }
