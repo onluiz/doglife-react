@@ -1,33 +1,38 @@
 import React, { Component } from 'react'
 import './MainPublicPage.css'
 import {Tabs, Tab} from 'material-ui/Tabs'
+import SignInFormContainer from '../../containers/signInForm/SignInFormContainer'
 import SignUpFormContainer from '../../containers/signUpForm/SignUpFormContainer'
 import {Card, CardTitle, CardText} from 'material-ui/Card'
+
+import Container from 'muicss/lib/react/container'
+import Row from 'muicss/lib/react/row'
+import Col from 'muicss/lib/react/col'
 
 class MainPublicPage extends Component {
     render() {
         return (
-            <div>
-                <Card className="card">
-                    <CardTitle title="Doglife"/>
-                    <CardText>
-                        <Tabs>
-                            <Tab label="Sign In">
-                                <div className="tab">
-                                    <p>
-                                    You can put any sort of HTML or react component in here. It even keeps the component state!
-                                    </p>
-                                </div>
-                            </Tab>
-                            <Tab label="Sign Up" >
-                                <div className="tab">
-                                    <SignUpFormContainer />
-                                </div>
-                            </Tab>
-                        </Tabs>
-                    </CardText>
-                </Card>
-            </div>
+            <Container fluid={true} className="container">
+                <Row>
+                    <Col md="4"></Col>
+                    <Col md="4">
+                        <Card>
+                            <CardTitle title="Doglife"/>
+                            <CardText>
+                                <Tabs>
+                                    <Tab label="Sign In">
+                                        <SignInFormContainer />
+                                    </Tab>
+                                    <Tab label="Sign Up" >
+                                        <SignUpFormContainer />
+                                    </Tab>
+                                </Tabs>
+                            </CardText>
+                        </Card>
+                    </Col>
+                    <Col md="4"></Col>
+                </Row>
+            </Container>
         )
     }
 }

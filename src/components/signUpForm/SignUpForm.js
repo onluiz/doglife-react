@@ -10,12 +10,32 @@ class SignUpForm extends Component {
             <form onSubmit={ this.props.handleSubmit }>
                 <div>
                     <Field
+                        name="name" 
+                        label="Your Name"
+                        floatingLabelText="Name"
+                        hintText="Your Name"
+                        component={TextField}
+                        type="text"
+                        required={true}/>
+                </div>
+                <div>
+                    <Field
                         name="username" 
                         label="Your Username"
                         floatingLabelText="Username"
                         hintText="Your Username"
                         component={TextField}
                         type="text"
+                        required={true}/>
+                </div>
+                <div>
+                    <Field
+                        name="email" 
+                        label="Your E-mail"
+                        floatingLabelText="E-mail"
+                        hintText="Your E-mail"
+                        component={TextField}
+                        type="email"
                         required={true}/>
                 </div>
                 <div>
