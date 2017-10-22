@@ -1,5 +1,6 @@
 import axios from 'axios';
-const url = 'http://localhost:8080/dogs';
+import * as util from '../utils/util'
+const url = 'http://localhost:8080/dogs'
 
 export function manageSnackBar(open = false, message = '') {
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
@@ -68,35 +69,21 @@ export function getAllDogs() {
     }
 }
 
-function checkValue(val) {
-    if(val === undefined) {
-        return ''
-    }
-    return val
-}
-
-function checkDateValue(dateVal = null) {
-    if(dateVal != null) {
-        return new Date(dateVal)
-    }
-    return dateVal
-}
-
 function extractNewDog(obj) {
     return {
-        name: checkValue(obj.name),
-        nickname: checkValue(obj.nickname),
-        birthdate: checkDateValue(obj.birthdate),
-        notes: checkValue(obj.notes),
+        name: util.checkValue(obj.name),
+        nickname: util.checkValue(obj.nickname),
+        birthdate: util.checkDateValue(obj.birthdate),
+        notes: util.checkValue(obj.notes),
     }
 }
 
 function extractDog(obj) {
     return {
-        _id: checkValue(obj._id),
-        name: checkValue(obj.name),
-        nickname: checkValue(obj.nickname),
-        birthdate: checkDateValue(obj.birthdate),
-        notes: checkValue(obj.notes),
+        _id: util.checkValue(obj._id),
+        name: util.checkValue(obj.name),
+        nickname: util.checkValue(obj.nickname),
+        birthdate: util.checkDateValue(obj.birthdate),
+        notes: util.checkValue(obj.notes),
     }
 }
