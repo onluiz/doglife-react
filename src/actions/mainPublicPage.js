@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as util from '../utils/util'
 import {reset} from 'redux-form';
-const url = 'http://localhost:8080/users';
+const url = 'http://localhost:8080/';
 
 export function manageSnackBar(open = false, message = '') {
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
@@ -13,7 +13,21 @@ export function manageTabIndex(tabIndex = 0) {
 
 export function authUser(user) {
     return function(dispatch) {
-        dispatch(manageSnackBar(true, 'User auth algorithm in action!'))
+        axios.post(`${url}login`, extractLoginUser(user))
+        .then(res => {
+            let message = util.checkValue(res.data.message)
+            let success = res.data.success
+            let token = res.data.token
+
+            console.log('token', token)
+
+            if(!success && success !== undefined) {
+                dispatch(manageSnackBar(true, message))
+            } else {
+                dispatch(manageSnackBar(true, 'Authentication completed! =D'))
+            }
+        })
+        .catch(err => dispatch(manageSnackBar(true, err)))
     }
 }
 
@@ -22,7 +36,7 @@ export function addUser(newUser) {
         if(newUser.password !== newUser.repeatedPassword) {
             dispatch(manageSnackBar(true, 'Password and repeated password should be the same'))
         } else {
-            axios.post(url, extractNewUser(newUser))
+            axios.post(`${url}users`, extractNewUser(newUser))
             .then(res => {
                 dispatch(manageSnackBar(true, 'Your user was successfully added'))
                 dispatch(reset('signUpForm'))
@@ -32,6 +46,13 @@ export function addUser(newUser) {
                 dispatch(manageSnackBar(true, 'It was not possible to save your new user =/'))
             })
         }
+    }
+}
+
+function extractLoginUser(obj) {
+    return {
+        name: util.checkValue(obj.username),
+        password: util.checkValue(obj.password),
     }
 }
 
