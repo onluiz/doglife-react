@@ -1,9 +1,14 @@
 import axios from 'axios';
 import * as util from '../utils/util'
+import {reset} from 'redux-form';
 const url = 'http://localhost:8080/users';
 
 export function manageSnackBar(open = false, message = '') {
     return { type: 'MANAGE_SNACK_BAR', snackBar: { open, message }}
+}
+
+export function manageTabIndex(tabIndex = 0) {
+    return { type: 'MANAGE_TAB_INDEX', tabIndex}
 }
 
 export function authUser(user) {
@@ -20,18 +25,13 @@ export function addUser(newUser) {
             axios.post(url, extractNewUser(newUser))
             .then(res => {
                 dispatch(manageSnackBar(true, 'Your user was successfully added'))
+                dispatch(reset('signUpForm'))
+                dispatch(manageTabIndex())
             })
             .catch(err => {
                 dispatch(manageSnackBar(true, 'It was not possible to save your new user =/'))
             })
         }
-    }
-}
-
-export function updateUser(user) {
-    return function(dispatch) {
-        dispatch(manageSnackBar(true, 'Updating user'))
-        console.log('updateUser', user);
     }
 }
 

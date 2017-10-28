@@ -14,4 +14,5 @@ class SignUpFormContainer extends Component {
         )
     }
 }
+
 export default connect(null, actions)(SignUpFormContainer);

@@ -1,6 +1,7 @@
 const mainPublicPage = (
     state = {
-        snackBar: { open: false, message: '' }
+        snackBar: { open: false, message: '' },
+        tabIndex: 0
     },
     action
 ) => {
@@ -9,6 +10,12 @@ const mainPublicPage = (
             return {
               ...state, 
               snackBar: action.snackBar
+            }
+        }
+        case 'MANAGE_TAB_INDEX': {
+            return {
+              ...state, 
+              tabIndex: action.tabIndex
             }
         }
         default:
