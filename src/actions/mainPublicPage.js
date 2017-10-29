@@ -25,6 +25,7 @@ export function authUser(user) {
                 dispatch(manageSnackBar(true, message))
             } else {
                 dispatch(manageSnackBar(true, 'Authentication completed! =D'))
+                localStorage.setItem('jwtToken', token);
             }
         })
         .catch(err => dispatch(manageSnackBar(true, err)))
