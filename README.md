@@ -1,8 +1,8 @@
 # Doglife
 
 ## TODO
-- [ ] Sign in screen;
-- [ ] Sign up screen;
+- [x] Sign in screen;
+- [x] Sign up screen;
 - [ ] Token managment with axios;
 - [x] Edit dog;
 - [x] Remove dog;
