@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Routes from './components/routes/Routes'
 import MainPublicPage from './components/mainPublicPage/MainPublicPage'
 import MainPage from './components/mainPage/MainPage'
 import Snackbar from 'material-ui/Snackbar'
@@ -7,9 +8,7 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
-
     let page;
-
     if(this.props.isAuthenticated) {
       page = <MainPage />
     } else {
@@ -20,6 +19,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           {page}
+          <Routes />
           <Snackbar
             open={this.props.snackBar.open}
             message={this.props.snackBar.message}

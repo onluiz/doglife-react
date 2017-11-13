@@ -15,7 +15,7 @@ class DogCard extends Component {
     }
 
     handleDelete = () => {
-        this.props.deleteDog(this.props.dogId);
+        this.props.deleteDog(this.props.dogId)
     }
 
     render() {
